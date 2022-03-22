@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="topo">
+            <label class="switch">
+                <input type="checkbox" id="tema" onclick="mudartema()">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <input type="text" class="tela-m" name="txt-m" disabled></input>
+        <input type="text" class="tela" name="txt"></input>
+        <div class="botoes">
+            <div class="numeros">
+                <button class="botao-vermelho" href="" onclick="excluir()">C</button>
+                <button class="botao" href="" onclick="adicionar('7')">7</button>
+                <button class="botao" href="" onclick="adicionar('4')">4</button>
+                <button class="botao" href="" onclick="adicionar('1')">1</button>
+                <button class="desativado" href="" disabled></button>
+            </div>
+            <div class="numeros">
+                <button class="botao-cinza" href="" onclick="adicionar('/'); verificar()">/</button>
+                <button class="botao" href="" onclick="adicionar('8')">8</button>
+                <button class="botao" href="" onclick="adicionar('5')">5</button>
+                <button class="botao" href="" onclick="adicionar('2')">2</button>
+                <button class="botao" href="" onclick="adicionar('0')">0</button>
+            </div>
+            <div class="numeros">
+                <button class="botao-cinza" href="" onclick="adicionar('*'); verificar()">x</button>
+                <button class="botao" href="" onclick="adicionar('9')">9</button>
+                <button class="botao" href="" onclick="adicionar('6')">6</button>
+                <button class="botao" href="" onclick="adicionar('6')">3</button>
+                <button class="botao" href="" onclick="adicionar('.'); virgula()">,</button>
+            </div>
+            <div class="numeros">
+                <button class="botao-branco" href="" onclick="apagar()"><svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10l7-7h13v14H7l-7-7zm14.41 0l2.13-2.12-1.42-1.42L13 8.6l-2.12-2.13-1.42 1.42L11.6 10l-2.13 2.12 1.42 1.42L13 11.4l2.12 2.13 1.42-1.42L14.4 10z"/></svg></button>
+                <button class="botao-cinza" href="" onclick="adicionar('-'); verificar()">-</button>
+                <button class="botao-cinza" href="" onclick="adicionar('+'); verificar()">+</button>
+                <button class="botao-cinza grande" href="" onclick="calcular()">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/script.js"></script>
+<script src="./js/sweetalert2.all.min.js"></script>
+</html>
