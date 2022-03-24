@@ -21,6 +21,10 @@ function mensagemUnica() {
             animation: 'fade',
             trigger: 'click',
         });
+<<<<<<< HEAD
+=======
+        tippyTema.style.display="none";
+>>>>>>> 3a0a0ac1af3f80f3ea2b61235f24ec25b46a25b6
 }
 function TemaClaro() {
     tippy('#muda-tema', {

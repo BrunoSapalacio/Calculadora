@@ -176,4 +176,8 @@ input:checked + .slider:before {
     height: 100%;
     top: 0;
     position: absolute;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3a0a0ac1af3f80f3ea2b61235f24ec25b46a25b6
