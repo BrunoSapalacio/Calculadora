@@ -4,6 +4,7 @@ const tema = document.querySelector('#tema');
 const body = document.querySelector('body');
 const container = document.querySelector('.container');
 const botao = document.querySelectorAll('.botao');
+const tippyTema = document.querySelector('.tippy-tema')
 let verificado = false;
 let pontoONOFF = false;
 let bloqueado = false;
@@ -11,21 +12,16 @@ let checar = false;
 let check = false;
 
 function mensagemUnica() {
-    if (check == false) {
-        tippy('#muda-tema', {
-        content: "Clique aqui para mudar o tema da calculadora",
-        showOnCreate: true,
-        delay: [1000],
-        placement: 'top',
-        arrow: true,
-        animation: 'fade',
-    });
-    check = true;
-    } else {
-        return
-    }
+            tippy(tippyTema, {
+            content: "Clique aqui para mudar o tema da calculadora",
+            showOnCreate: true,
+            delay: [1000],
+            placement: 'top',
+            arrow: true,
+            animation: 'fade',
+            trigger: 'click',
+        });
 }
-
 function TemaClaro() {
     tippy('#muda-tema', {
     content: "Tema Claro Ativado!",
@@ -166,6 +162,7 @@ function verificar(texto) {
 }
 
 function mudartema() {
+    tippyTema.style.display="none";
     if (tema.checked == false) {
         tema.checked = false;
         body.style.background = "#0A0A0A";
@@ -192,6 +189,7 @@ function mudartema() {
         for (i = 0, len = botao.length; i < len; i++) {
             botao[i].style.color = '#141414';
         }
+        //tippyTema.remove();
         TemaClaro();
     }
 }
