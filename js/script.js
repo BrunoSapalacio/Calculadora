@@ -163,7 +163,6 @@ function verificar(texto) {
 }
 
 function mudartema() {
-    tippyTema.style.display="none";
     if (tema.checked == false) {
         tema.checked = false;
         body.style.background = "#0A0A0A";
