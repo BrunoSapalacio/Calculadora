@@ -121,12 +121,12 @@ button:hover {color: #fff;}
     width: 40px;
     height: 24px;
   }
-  .switch input { 
+.switch input { 
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  .slider {
+}
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -138,8 +138,8 @@ button:hover {color: #fff;}
     transition: .4s;
     border-radius: 34px;
     border: 1px solid #313131;
-  }
-  .slider:before {
+}
+.slider:before {
     position: absolute;
     content: "";
     height: 14px;
@@ -151,16 +151,23 @@ button:hover {color: #fff;}
     transition: .4s;
     border-radius: 50%;
   }
-  input:checked + .slider {
+input:checked + .slider {
     background-color: #f3f3f3;
     border: 1px solid #cccccc;
   }
-  input:focus + .slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #252525;
   }
-  input:checked + .slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(15px);
     -ms-transform: translateX(15px);
     transform: translateX(15px);
     background-color: #b3b3b3;
   }
+.tippy-box[data-theme~='erro'] {
+    background-color: #b81c1c;
+    color: #fff;
+}
+.tippy-box[data-theme~='erro'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: #b81c1c;
+}
