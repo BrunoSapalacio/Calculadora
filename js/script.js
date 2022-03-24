@@ -21,6 +21,7 @@ function mensagemUnica() {
             animation: 'fade',
             trigger: 'click',
         });
+        tippyTema.style.display="none";
 }
 function TemaClaro() {
     tippy('#muda-tema', {
