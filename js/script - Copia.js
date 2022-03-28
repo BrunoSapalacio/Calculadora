@@ -1,70 +1,64 @@
+let tela = document.querySelector('.tela');
+let telaM = document.querySelector('.tela-m');
 const tema = document.querySelector('#tema');
 const body = document.querySelector('body');
 const container = document.querySelector('.container');
 const botao = document.querySelectorAll('.botao');
 const tippyTema = document.querySelector('#tippy1')
 const tippyTela = document.querySelector('#tippy2')
-const copyID = document.querySelector('#copy')
-let tela = document.querySelector('.tela');
-let telaM = document.querySelector('.tela-m');
 let verificado = false;
-let virgulaONOFF = false;
+let pontoONOFF = false;
 let bloqueado = false;
+let checar = false;
+let check = false;
+//let calculo = '';
+let telaDisplay = tela.value.toLocaleString('de-DE');
 
 function mensagemUnica() {
-    tippy(tippyTema, {
-        content: "Para mudar o tema da calculadora, clique aqui",
-        showOnCreate: true,
-        delay: [500],
-        placement: 'top',
-        arrow: true,
-        animation: 'fade',
-        trigger: 'click',
-    });
+            tippy(tippyTema, {
+            content: "Clique aqui para mudar o tema da calculadora",
+            showOnCreate: true,
+            delay: [1000],
+            placement: 'top',
+            arrow: true,
+            animation: 'fade',
+            trigger: 'click',
+        });
+        setTimeout(() => {tippyTema.style.display = 'none'}, 1000);
 }
-
 function TemaClaro() {
     tippy('#muda-tema', {
-        content: "Tema Claro Ativado",
-        showOnCreate: true,
-        placement: 'top',
-        arrow: true,
-        animation: 'fade',
-        trigger: 'manual',
+    content: "Tema Claro Ativado",
+    showOnCreate: true,
+    placement: 'top',
+    arrow: true,
+    animation: 'fade',
+    trigger: 'manual',
     });
 }
 
 function TemaEscuro() {
     tippy('#muda-tema', {
-        content: "Tema Escuro Ativado",
-        showOnCreate: true,
-        placement: 'top',
-        arrow: true,
-        animation: 'fade',
-        trigger: 'manual',
+    content: "Tema Escuro Ativado",
+    showOnCreate: true,
+    placement: 'top',
+    arrow: true,
+    animation: 'fade',
+    trigger: 'manual',
     });
 }
 
 function erro() {
     tippyTela.style.display = 'block';
     tippy(tippyTela, {
-        content: "Insira um número",
-        showOnCreate: true,
-        placement: 'top',
-        arrow: true,
-        theme: 'erro',
-        animation: 'fade',
+    content: "Insira um número",
+    showOnCreate: true,
+    placement: 'top',
+    arrow: true,
+    theme: 'erro',
+    animation: 'fade',
     });
     setTimeout(() => {tippyTela.style.display = 'none'}, 1000);
-}
-
-function copy() {
-    tippy('#copy', {
-        content: "Clique aqui para conhecer os meus outros projetos",
-        placement: 'top',
-        arrow: true,
-        animation: 'fade',
-    });
 }
 
 function porcetagem() {
@@ -83,9 +77,9 @@ function porcetagem() {
         bloqueado = true;
         verificado = false;
         if (tela.value.indexOf(",") > 0) {
-            virgulaONOFF = true; 
+            pontoONOFF = true; 
         } else {
-            virgulaONOFF = false; 
+            pontoONOFF = false; 
         }
     }
 }
@@ -101,34 +95,77 @@ function calcular(){
     let conta = new Function("return " + telaM.value.replace(",",".") + tela.value.replace(",","."));
     let resultado = conta();
     let resultadoFormatado = resultado.toString().replace(".",",");
+    //console.log(resultadoFormatado);
+    //let resultadoString = parseFloat(resultadoFormatado.split(",")[0]);;
+    //console.log(resultadoString.replace(".",","))
     telaM.value += tela.value;
     tela.value = resultadoFormatado.substr(0, 10);
     bloqueado = true;
     verificado = false;
     if (tela.value.indexOf(",") > 0) {
-        virgulaONOFF = true; 
+        pontoONOFF = true; 
     } else {
-        virgulaONOFF = false; 
+        pontoONOFF = false; 
     }
+    console.log(resultadoFormatado);
+    /*let resultadoFormatado = resultado.toString();
+    if (resultadoFormatado.indexOf(".") >= 1) {
+        console.log(resultado);
+        console.log(resultadoFormatado);
+        console.log(tela.value.indexOf(".") + ' Posicao do . Verificado');
+        telaM.value += tela.value;
+        Math.round(resultado);
+        console.log(Math.round(resultado) + ' ---- ')
+        tela.value = resultadoFormatado.substr(0, 10);
+        bloqueado = true;
+        verificado = false;
+        pontoONOFF = false;
+    } else {
+        console.log(resultado)
+        console.log(tela.value)
+        telaM.value += tela.value;
+        tela.value = resultado;
+        bloqueado = true;
+        verificado = false;
+        pontoONOFF = false;
+        Math.round(resultado);
+        console.log(Math.round(resultado) + ' ---- ')
+        console.log(tela.value.length);
+        console.log(tela.value.indexOf(".") + ' Posicao do .');
+        }*/
 }
 
 function adicionar(texto) {
-    if (tela.value.indexOf(",") == -1 && virgulaONOFF == true)
+    if (tela.value.indexOf(",") == -1 && pontoONOFF == true)
     {
-        virgulaONOFF = false;
+        pontoONOFF = false;
     }
-    if (virgulaONOFF == true && texto == ',') {
+    if (pontoONOFF == true && texto == ',') {
+        console.log(tela.value.indexOf(".")); 
         return;    
     }
     if (tela.value.indexOf(",") > 0) {
-        virgulaONOFF = true;
+        console.log(tela.value.indexOf("."));
+        pontoONOFF = true;
+        console.log(pontoONOFF);
     }
     if (bloqueado == true) {
         telaM.value = '';
+        //calculo += texto;
         tela.value += texto;
-        bloqueado = false; 
+        bloqueado = false;
+        console.log(bloqueado) 
     } else {
+        //calculo += texto;
         tela.value += texto;
+        /*let telaString = tela.value.toString();
+        telaDisplay = parseFloat(telaString.split(".")[0]);
+        tela.value = telaDisplay.toLocaleString('de-DE');
+        console.log(pontoONOFF);
+        console.log(calculo);
+        console.log(telaDisplay.toLocaleString('de-DE'));
+        console.log(tela.value.toString());
+        console.log(tela.value.indexOf("."));*/
     }
 }
 
@@ -148,22 +185,27 @@ function apagar() {
 
 function verificar(texto) {
     if (tela.value.length > 1 && texto == ',') {
-        virgulaONOFF = true;
-        return;
+        pontoONOFF = true;
+        console.log('oi')
+        console.log(tela.value.length + ' Valor da tela');
+        return
     }
     if (tela.value.length == 1) {
+        console.log(tela.value.length + ' Valor da tela');
         tela.value = '';
         erro();
     } else {
+        console.log(tela.value.length + ' Valor da tela');
         telaM.value += tela.value;
         tela.value = '';
         verificado = true;
-        virgulaONOFF = false;
+        //checar = true;
+        console.log(tela.value)
+        pontoONOFF = false;
     }
 }
 
 function mudartema() {
-    tippyTema.style.display = 'none';
     if (tema.checked == false) {
         tema.checked = false;
         body.style.background = "#0A0A0A";
@@ -172,20 +214,20 @@ function mudartema() {
         tela.style.color = "#fff";
         telaM.style.background = "#415A6B";
         telaM.style.color = "#fff";
-        copyID.style.color = "#fff";
+        Copy.style.color = "#fff";
         for (i = 0, len = botao.length; i < len; i++) {
             botao[i].style.color = '#ffffff';
         }
         TemaEscuro();
     } else {
         tema.checked = true;
+        console.log('light');
         body.style.background = "#fff";
         container.style.background = "#EEEEEE";
         tela.style.background = "#fff";
         tela.style.color = "#141414";
         telaM.style.background = "#fff";
         telaM.style.color = "#141414";
-        copyID.style.color = "#141414";
         for (i = 0, len = botao.length; i < len; i++) {
             botao[i].style.color = '#141414';
         }
