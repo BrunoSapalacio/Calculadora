@@ -1,5 +1,5 @@
 # Descrição
-Uma calculadora básica que possue métodos de verificação para que a conta seja efetuada com sucesso.
+Uma calculadora básica que possue duas variações de tema e  métodos de verificação para que a conta seja efetuada com sucesso.
 
 # Propósito
 O sistema foi criado como base de estudo e prática para fixar os conhecimentos sobre **HTML, CSS, JS** e uso de **Plugins**.
