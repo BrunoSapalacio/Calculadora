@@ -78,7 +78,7 @@ function porcetagem() {
         let conta = new Function("return " + telaM.value.replace(",",".") + tela.value.replace(",","."));
         let resultado = conta();
         let resultadoFinal = resultado / 100;
-        telaM.value += tela.value + '%';
+        telaM.value += tela.value + '% =';
         tela.value = resultadoFinal.toString().replace(".",",");
         bloqueado = true;
         verificado = false;
@@ -101,7 +101,7 @@ function calcular(){
     let conta = new Function("return " + telaM.value.replace(",",".") + tela.value.replace(",","."));
     let resultado = conta();
     let resultadoFormatado = resultado.toString().replace(".",",");
-    telaM.value += tela.value;
+    telaM.value += tela.value + ' =';
     tela.value = resultadoFormatado.substr(0, 10);
     bloqueado = true;
     verificado = false;
