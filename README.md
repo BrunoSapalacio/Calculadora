@@ -1,5 +1,5 @@
 # Descrição
-Uma calculadora básica que possue duas variações de tema e  métodos de verificação para que a conta seja efetuada com sucesso. O protótipo do sistema foi criado através do [Figma](https://www.figma.com/file/kkDYzhOqNRfNZmV7LX1rgL/Calculadora?node-id=0%3A1)
+Uma calculadora básica que possue duas variações de tema e  métodos de verificação para que a conta seja efetuada com sucesso. O protótipo do sistema foi criado através do [Figma](https://www.figma.com/file/kkDYzhOqNRfNZmV7LX1rgL/Calculadora?node-id=0%3A1).
 
 # Propósito
 O sistema foi criado como base de estudo e prática para fixar os conhecimentos sobre **HTML, CSS, JS** e uso de **Plugins**.
