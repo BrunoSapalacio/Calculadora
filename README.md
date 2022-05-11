@@ -6,7 +6,6 @@ O sistema foi criado como base de estudo e prática para fixar os conhecimentos 
 
 # Tecnologias utilizadas
 - [Tippy.js](https://atomiks.github.io/tippyjs/) - Cria tooltips personalizáveis.
--
  
 # Como rodar
 
